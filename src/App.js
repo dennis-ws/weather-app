@@ -1,24 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import { styled } from '@mui/system'
+import { Container } from '@mui/material'
+import { TodayContainer, WeekContainer } from './weather/weatherContainer.js'
 
 function App() {
+  const [city, setCity] = useState("")
+  const [weather, setWeather] = useState("")
+
+  const StyledContainer = styled(Container)`
+    background-color: lightblue;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+  `;
+
+  const weatherApp = () => {
+    return (
+      <>
+      <TodayContainer>
+        Today's Weather!
+      </TodayContainer>
+      <WeekContainer>
+        This week's Weather!
+      </WeekContainer>
+      </>
+    )
+  }
+
+  const getCity = () => {
+    return (
+      <>
+
+      </>
+    )
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <StyledContainer>
+        {city && weather ? weatherApp() : getCity()}
+      </StyledContainer>
+    </>
   );
 }
 
